@@ -1,0 +1,15 @@
+{
+  "name": "cs-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/main.js",
+  "module": "commonjs",
+  "author": "AlexeyAdoniev <Alexeya@xp.network>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
