@@ -18,6 +18,7 @@
     text: "solana.com",
     link: "https://solana.com",
   },
+  distantPic: 500, //width of some  decorative absolute positions image on header background (0 if doesn't exist)
   content: [
     {
       h2: "A",
@@ -42,4 +43,5 @@
     },
     { img: "1" },
   ],
+  cardParent: "goldfever",
 });
