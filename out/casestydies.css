@@ -1,20 +1,14 @@
 
-        .newCaseStydy.solanaPage .opilous_hero_area::before {
-            background-image: url(/assets/img/solana/background.png);
+        .newCaseStydy.arbitrumPage .opilous_hero_area::before {
+            background-image: url(/assets/img/arbitrum/desk/bg.png);
         }
 
-        
-        .newCaseStydy.solanaPage .distantPic {
-            width: 500px;
-            bottom: 5%;
-            right: -20%;
-        }
         
 
 
         @media only screen and (max-width: 767px) {
-            .newCaseStydy.solanaPage .opilous_hero_area::before {
-                background-image: url(/assets/img/solana/mob\background.png);
+            .newCaseStydy.arbitrumPage .opilous_hero_area::before {
+                background-image: url(/assets/img/arbitrum/mob/bg.png);
             }
     
         }
