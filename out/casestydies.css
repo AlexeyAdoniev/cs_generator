@@ -1,14 +1,14 @@
 
-        .newCaseStydy.arbitrumPage .opilous_hero_area::before {
-            background-image: url(/assets/img/arbitrum/desk/bg.png);
+        .newCaseStydy.bridgeToEthereumPage .opilous_hero_area::before {
+            background-image: url(/assets/img/bridgeToEthereum/desk/bg.png);
         }
 
         
 
 
         @media only screen and (max-width: 767px) {
-            .newCaseStydy.arbitrumPage .opilous_hero_area::before {
-                background-image: url(/assets/img/arbitrum/mob/bg.png);
+            .newCaseStydy.bridgeToEthereumPage .opilous_hero_area::before {
+                background-image: url(/assets/img/bridgeToEthereum/mob/bg.png);
             }
     
         }

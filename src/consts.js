@@ -61,7 +61,7 @@ export const DEFAULT = `
         </script>
 </head>
 
-<body class="flate_menu">
+<body>
   <div class="bodyWrap theosPage driftersPage newCaseStydy">
     <div class="sidebar_form">
       <span class="close_form"><img src="/assets/img/icons/close.svg" /></span>
@@ -528,7 +528,7 @@ onclick="window.innerWidth >= 300 && window.open('/volted-dragons', '_self')">
 
 
 <div class="snafuImage box_content  whiteBoxCont boxTextLeft"
-onclick="window.innerWidth >= 300 && window.open('/cs-solana/', '_self')">
+onclick="window.innerWidth >= 300 && window.open('/cs-solana', '_self')">
 
 <img src="/assets/img/new-cs-solana/mob/overview.png" class="box_content_img desktop_only" />
 <img src="/assets/img/new-cs-solana/mob/overview.png" class="box_content_img mobileOnly" />
@@ -546,7 +546,7 @@ onclick="window.innerWidth >= 300 && window.open('/cs-solana/', '_self')">
     Bridging Solana NFTs: why it’s so important for the NFT ecosystem
   </h2>
   <p>As Solana’s NFT ecosystem’s on the rise again, it’s a good moment to look at how it’s integrated in the XP.NETWORK ecosystem. Its NFT token standard is very different from those of EVM chains, but thanks to the efforts of our brilliant dev team, Solana NFTs are now flowing through the bridge with all their contract logic intact.</p>
-  <a href="/cs-solana/" target="_self" class="black_text_btn">Discover case study -></a>
+  <a href="/cs-solana" target="_self" class="black_text_btn">Discover case study -></a>
 </div>
 </div>
 
@@ -708,7 +708,7 @@ onclick="window.innerWidth >= 300 && window.open('/cs-solana/', '_self')">
     <p>
       XP.NETWORK is known primarily for its expertise bridging collections between EVM and non-EVM networks. We also work with projects that wish to expand from one EVM chain to another – as in this case, with ApeSwap NFT, a collection of pixelated apes issued by a popular DeFi hub.
     </p>
-    <a href="/apeswap/" target="_self" class="black_text_btn">Discover case study -></a>
+    <a href="/apeswap" target="_self" class="black_text_btn">Discover case study -></a>
   </div>
 </div>
 

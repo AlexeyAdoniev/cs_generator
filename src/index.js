@@ -3,7 +3,7 @@ import vm from "node:vm";
 import { Worker, isMainThread, parentPort } from "node:worker_threads";
 
 import { DEFAULT, CARDS } from "./consts.js";
-import { getFiles, camelize } from "./utils.js";
+import { getFiles, camelize, kebabify } from "./utils.js";
 
 import cheerio, { load } from "cheerio";
 
@@ -56,7 +56,7 @@ import path from "node:path";
 
             const htmlFile = await fs.open(`out/card.html`, "w");
 
-            const cs_card = $(`a[href='/${cs.cardParent}/']`).parent().parent();
+            const cs_card = $(`a[href='\/${cs.cardParent}']`).parent().parent();
 
             cs_card.attr(
                 "onclick",
@@ -94,7 +94,7 @@ import path from "node:path";
 
     const cs = await vm.runInContext(code, vm.createContext({}));
 
-    const lname = cs.name.toLowerCase();
+    const lname = camelize(cs.name);
 
     await fs.mkdir(`out/${lname}`, {
         recursive: true,
@@ -138,11 +138,12 @@ import path from "node:path";
         host + images.find((i) => /meta.png$/.test(i))
     );
 
+    $("body").addClass(cs.darkTone ? "flate_menu" : "");
     $("body .bodyWrap").removeClass(cs.previous.class);
     $("body .bodyWrap").addClass(lname + "Page");
 
     $(".opilous_hero.deskOnly h2").html(cs.title.desk);
-    $(".opilous_hero.deskOnly h2").addClass(cs.title.centred ? "centred" : "");
+    $(".opilous_hero.deskOnly").addClass(cs.title.centred ? "centred" : "");
     $(".opilous_hero.mobOnly h2").html(cs.title.mob);
 
     cs.distantPic &&
@@ -174,6 +175,18 @@ import path from "node:path";
         cs.content.reduce((acc, cur) => {
             const key = Object.keys(cur)[0];
 
+            function paragraph(className = "") {
+                const text = cur[key];
+                const rows = text
+                    .split("\n")
+                    .map((str) => str.trim())
+                    .filter((str) => str !== "")
+                    .map((str) => `<p class="${className}">${str}</p>`)
+                    .join("\n");
+
+                return acc + rows;
+            }
+
             switch (key) {
                 case "h2": {
                     return acc + `<h2 class='titleMargin'>${cur[key]}</h2>\n`;
@@ -184,15 +197,10 @@ import path from "node:path";
                     );
                 }
                 case "p": {
-                    const text = cur[key];
-                    const rows = text
-                        .split("\n")
-                        .map((str) => str.trim())
-                        .filter((str) => str !== "")
-                        .map((str) => `<p>${str}</p>`)
-                        .join("\n");
-
-                    return acc + rows;
+                    return paragraph();
+                }
+                case "list": {
+                    return paragraph("list") + "</br>";
                 }
                 case "img": {
                     return (
@@ -213,6 +221,8 @@ import path from "node:path";
             }
         }, "")
     );
+
+    $(".followUsDiv").text(cs.followUs);
 
     const prev = $(".caseSliderRow .caseSlideItem:nth-child(1)");
     const next = $(".caseSliderRow .caseSlideItem:nth-child(2)");
